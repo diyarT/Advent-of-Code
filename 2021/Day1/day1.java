@@ -11,14 +11,10 @@ public class day1 {
 
     public static void main(String[] args) throws IOException {
         List<String> lines  = Files.readAllLines(Paths.get("2021\\Day1\\input.txt"));
-        int prevInt = 0;
         int counter = 0;
-        for (String line : lines) {
-            if (prevInt < Integer.parseInt(line)){
-                counter++;
-            }
-            prevInt = Integer.parseInt(line);
+        for (int i = 0; i < lines.size() - 1 ; i++) {
+            if (Integer.parseInt(lines.get(i)) < Integer.parseInt(lines.get(i+1))) counter++;
         }
-        System.out.println(counter-1);
+        System.out.println(counter);
     }
 }
